@@ -56,14 +56,14 @@ jobs:
             build_type: Debug
             build_python: OFF
           - name: manylinux2014-release
-            os_type: manylinux
-            os_name: ubuntu-latest
+            os_type: macos
+            os_name: macos-latest
             container_image: quay.io/pypa/manylinux2014_x86_64
             build_type: Release
             build_python: ON
           - name: manylinux2014-debug
-            os_type: manylinux
-            os_name: ubuntu-latest
+            os_type: macos
+            os_name: macos-latest
             container_image: quay.io/pypa/manylinux2014_x86_64
             build_type: Debug
             build_python: ON
