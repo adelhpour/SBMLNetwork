@@ -84,6 +84,14 @@ jobs:
         if: matrix.platform.os_type == 'windows'
         uses: ilammy/msvc-dev-cmd@v1.6.0
 
+      - name: Setup Docker on macOS
+        if : matrix.platform.os_type == 'macos'
+        uses: crazy-max/ghaction-setup-docker@v3
+
+      - name: check docker on macos
+        if : matrix.platform.os_type == 'macos'
+        run: docker --version
+
       - name: Upgrade gcc on Linux
         if: matrix.platform.os_type == 'manylinux'
         shell: bash
