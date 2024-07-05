@@ -93,7 +93,29 @@ jobs:
         run: |
           docker --version 
           echo "Docker is installed"
-          docker run hello-world
+          docker run quay.io/pypa/manylinux_2_28_x86_64
+          mkdir roadrunner
+          cd roadrunner
+          mkdir libroadrunner-deps
+          cd libroadrunner-deps
+          dnf install -y wget
+          wget https://github.com/sys-bio/libroadrunner-deps/releases/download/v2.1.2/libroadrunner-deps-manylinux_2_28-x86_64-Release.zip
+          unzip libroadrunner-deps-manylinux_2_28-x86_64-Release.zip
+          rm libroadrunner-deps-manylinux_2_28-x86_64-Release.zip
+          cd ..
+          mkdir llvm-13.x
+          cd llvm-13.x
+          wget https://github.com/sys-bio/llvm-13.x/releases/download/v13.1/llvm-13.x-manylinux_2_28-x86_64-Release.zip
+          unzip llvm-13.x-manylinux_2_28-x86_64-Release.zip
+          rm llvm-13.x-manylinux_2_28-x86_64-Release.zip
+          cd ..
+          mkdir roadrunner
+          cd roadrunner
+          mkdir build
+          mkdir install
+          git clone https://github.com/sys-bio/roadrunner.git
+          
+          
 
       - name: Upgrade gcc on Linux
         if: matrix.platform.os_type == 'manylinux'
