@@ -90,7 +90,9 @@ jobs:
 
       - name: check docker on macos
         if : matrix.platform.os_type == 'macos'
-        run: docker --version
+        run: |
+          docker --version 
+          echo "Docker is installed"
 
       - name: Upgrade gcc on Linux
         if: matrix.platform.os_type == 'manylinux'
