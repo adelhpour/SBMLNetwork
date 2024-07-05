@@ -93,6 +93,7 @@ jobs:
         run: |
           docker --version 
           echo "Docker is installed"
+          docker run hello-world
 
       - name: Upgrade gcc on Linux
         if: matrix.platform.os_type == 'manylinux'
