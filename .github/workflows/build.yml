@@ -93,7 +93,8 @@ jobs:
         run: |
           docker --version 
           echo "Docker is installed"
-          docker run quay.io/pypa/manylinux_2_28_x86_64
+          mkdir /data
+          sudo docker run --rm --name=manylinux -it -v /data:/data  quay.io/pypa/manylinux2014_x86_64
           mkdir roadrunner
           cd roadrunner
           mkdir libroadrunner-deps
